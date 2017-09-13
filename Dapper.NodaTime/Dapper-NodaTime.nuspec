@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>CareSuite Dapper-NodaTime</id>
+    <id>CareSuite-Dapper-NodaTime</id>
     <version>$version$</version>
     <title>CareSuite-Dapper-NodaTime</title>
     <authors>$author$</authors>
