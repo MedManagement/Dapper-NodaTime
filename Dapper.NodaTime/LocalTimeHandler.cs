@@ -15,12 +15,13 @@ namespace Dapper.NodaTime
 
         public override void SetValue(IDbDataParameter parameter, LocalTime value)
         {
-            parameter.Value = TimeSpan.FromTicks(value.TickOfDay);
+            //parameter.Value = TimeSpan.FromTicks(value.TickOfDay);
+            parameter.Value = new DateTime(1753, 1, 1, value.Hour, value.Minute, value.Second,0, DateTimeKind.Unspecified);
 
             var sqlParameter = parameter as SqlParameter;
             if (sqlParameter != null)
             {
-                sqlParameter.SqlDbType = SqlDbType.Time;
+                sqlParameter.SqlDbType = SqlDbType.DateTime;
             }
         }
 

@@ -19,22 +19,21 @@ namespace Dapper.NodaTime.Tests
         {
             SqlMapper.AddTypeHandler(LocalDateTimeHandler.Default);
         }
-
         
 
-        [Fact]
-        public void Can_Write_And_Read_LocalDateTime_Stored_As_DateTime2()
-        {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                var o = new TestObject { Value = new LocalDateTime(1234, 12, 31, 1, 2, 3, 4, 5) };
+        //[Fact]
+        //public void Can_Write_And_Read_LocalDateTime_Stored_As_DateTime2()
+        //{
+        //    using (var connection = new SqlConnection(ConnectionString))
+        //    {
+        //        var o = new TestObject { Value = new LocalDateTime(1234, 12, 31, 1, 2, 3, 4, 5) };
 
-                const string sql = @"CREATE TABLE #T ([Value] datetime2); INSERT INTO #T VALUES (@Value); SELECT * FROM #T";
-                var t = connection.Query<TestObject>(sql, o).First();
+        //        const string sql = @"CREATE TABLE #T ([Value] datetime2); INSERT INTO #T VALUES (@Value); SELECT * FROM #T";
+        //        var t = connection.Query<TestObject>(sql, o).First();
 
-                Assert.Equal(o.Value, t.Value);
-            }
-        }
+        //        Assert.Equal(o.Value, t.Value);
+        //    }
+        //}
 
         [Fact]
         public void Can_Write_And_Read_LocalDateTime_Stored_As_DateTime()

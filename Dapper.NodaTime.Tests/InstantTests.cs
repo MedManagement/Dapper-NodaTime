@@ -21,34 +21,34 @@ namespace Dapper.NodaTime.Tests
         }
 
 
-        [Fact]
-        public void Can_Write_And_Read_Instant_Stored_As_DateTimeOffset()
-        {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                var o = new TestObject { Value = Instant.FromUtc(1234, 12, 31, 1, 2, 3).PlusTicks(1234567) };
+        //[Fact]
+        //public void Can_Write_And_Read_Instant_Stored_As_DateTimeOffset()
+        //{
+        //    using (var connection = new SqlConnection(ConnectionString))
+        //    {
+        //        var o = new TestObject { Value = Instant.FromUtc(1234, 12, 31, 1, 2, 3).PlusTicks(1234567) };
 
-                const string sql = @"CREATE TABLE #T ([Value] datetimeoffset); INSERT INTO #T VALUES (@Value); SELECT * FROM #T";
-                var t = connection.Query<TestObject>(sql, o).First();
+        //        const string sql = @"CREATE TABLE #T ([Value] datetimeoffset); INSERT INTO #T VALUES (@Value); SELECT * FROM #T";
+        //        var t = connection.Query<TestObject>(sql, o).First();
 
-                Assert.Equal(o.Value, t.Value);
-            }
-        }
+        //        Assert.Equal(o.Value, t.Value);
+        //    }
+        //}
 
 
-        [Fact]
-        public void Can_Write_And_Read_Instant_Stored_As_DateTime2()
-        {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                var o = new TestObject { Value = Instant.FromUtc(1234, 12, 31, 1, 2, 3).PlusTicks(1234567) };
+        //[Fact]
+        //public void Can_Write_And_Read_Instant_Stored_As_DateTime2()
+        //{
+        //    using (var connection = new SqlConnection(ConnectionString))
+        //    {
+        //        var o = new TestObject { Value = Instant.FromUtc(1234, 12, 31, 1, 2, 3).PlusTicks(1234567) };
 
-                const string sql = @"CREATE TABLE #T ([Value] datetime2); INSERT INTO #T VALUES (@Value); SELECT * FROM #T";
-                var t = connection.Query<TestObject>(sql, o).First();
+        //        const string sql = @"CREATE TABLE #T ([Value] datetime2); INSERT INTO #T VALUES (@Value); SELECT * FROM #T";
+        //        var t = connection.Query<TestObject>(sql, o).First();
 
-                Assert.Equal(o.Value, t.Value);
-            }
-        }
+        //        Assert.Equal(o.Value, t.Value);
+        //    }
+        //}
 
         [Fact]
         public void Can_Write_And_Read_Instant_Stored_As_DateTime()

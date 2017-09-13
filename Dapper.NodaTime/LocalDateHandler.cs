@@ -20,7 +20,7 @@ namespace Dapper.NodaTime
             var sqlParameter = parameter as SqlParameter;
             if (sqlParameter != null)
             {
-                sqlParameter.SqlDbType = SqlDbType.Date;
+                sqlParameter.SqlDbType = SqlDbType.DateTime;
             }
         }
 
