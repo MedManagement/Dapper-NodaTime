@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-[assembly: AssemblyCompany("Matt Johnson")]
+[assembly: AssemblyCompany("Matt Johnson (CareSuite Fork)")]
 [assembly: AssemblyProduct("Dapper.NodaTime")]
 [assembly: AssemblyCopyright("Copyright © 2014, Matt Johnson.  MIT Licensed.")]
 [assembly: AssemblyTitle("Dapper.NodaTime")]
